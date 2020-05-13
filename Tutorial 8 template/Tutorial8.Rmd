@@ -1,10 +1,10 @@
 ---
 title: "Corona Virus Report"
 author:
-- familyname: XXXX
-  othernames: XXX
+- familyname: Nguyen
+  othernames: Will
   address: Monash Universtidy
-  email: XXX
+  email: wngu0007@student.monash.edu
   correspondingauthor: true
   qualifications:  XXX
 - familyname: XXXX
