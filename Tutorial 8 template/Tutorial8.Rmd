@@ -71,3 +71,16 @@ british_brunei <- world_wide_cases %>% filter(countriesAndTerritories %in% c("Br
 ```
 
 The countries I have chosen to work on are the British Virgin Islands and Brunei Darussalam.
+
+```{r}
+british_monthly_cases <- british_brunei %>% filter(countriesAndTerritories == "British_Virgin_Islands") %>%
+mutate(Month = month(dateRep)) %>% select(Month, cases, deaths) %>% group_by(Month) %>% summarise(Total = sum(cases))
+```
+
+```{r}
+ggplot(british_monthly_cases) +
+  geom_col(aes(x = Month, y = Total)) +
+  theme_classic() +
+  ggtitle("Total monthly cases for British Virgin Islands")
+```
+
