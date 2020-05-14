@@ -51,6 +51,21 @@ library(bookdown)
 \section*{Country XX1 and YY1"}
 
 \section*{Country XX2 and YY2}
+```{r}
+dat <- read.csv(file = "Data/worldwidecases.csv")
+
+dat %>% 
+  filter(countriesAndTerritories == c("China", "Russia"))
+
+```
+
+
+
+
+
+
+
+
 
 \section*{Country XX3 and YY3}
 
