@@ -52,7 +52,22 @@ library(bookdown)
 
 \section*{Country XX2 and YY2}
 
-\section*{Country XX3 and YY3}
+\section3{Country British Virgin Islands and Brunei Darussalam}
 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(ggmap)
+library(kableExtra)
+```
 
+```{r}
+world_wide_cases <- read.csv("Data/worldwidecases.csv")
+```
 
+```{r}
+british_brunei <- world_wide_cases %>% filter(countriesAndTerritories %in% c("British_Virgin_Islands", "Brunei_Darussalam"))
+```
+
+The countries I have chosen to work on are the British Virgin Islands and Brunei Darussalam.
