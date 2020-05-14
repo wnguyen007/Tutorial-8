@@ -41,7 +41,7 @@ output:
 
 library(tidyverse)
 library(readr)
-library(kableExtra)
+
 library(bookdown)
 
 ```
@@ -51,6 +51,37 @@ library(bookdown)
 \section*{Country XX1 and YY1"}
 
 \section*{Country XX2 and YY2}
+```{r}
+dat <- read.csv(file = "Data/worldwidecases.csv")
+```
+
+```{r tab2}
+dat2 <- dat %>% 
+  filter(countriesAndTerritories == c("China", "Russia")) %>% 
+  pivot_wider(
+    names_from = "countriesAndTerritories",
+    values_from = "cases"  ) 
+ knitr::kable(head(dat2[, 1:11]), caption = "China and Russia")
+
+
+  
+
+```
+ 
+We can see the table\@ref(tab:tab2)).
+
+```{r nicefig}
+dat3 <- dat2 %>% 
+  select("China", "Russia") 
+  
+
+```
+
+
+
+
+
+
 
 \section*{Country XX3 and YY3}
 
