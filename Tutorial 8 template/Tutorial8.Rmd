@@ -77,10 +77,19 @@ british_monthly_cases <- british_brunei %>% filter(countriesAndTerritories == "B
 mutate(Month = month(dateRep)) %>% select(Month, cases, deaths) %>% group_by(Month) %>% summarise(Total = sum(cases))
 ```
 
-```{r}
+```{r british-monthly}
 ggplot(british_monthly_cases) +
   geom_col(aes(x = Month, y = Total)) +
   theme_classic() +
   ggtitle("Total monthly cases for British Virgin Islands")
 ```
+
+From (Figure \@ref(fig:british-monthly)), we can see that the total number of cases has been very low across the months of March, April and May. May reported the lowest number of total cases at 1.
+
+```{r brunei-monthly}
+(brunei_cases <- british_brunei %>% filter(countriesAndTerritories == "Brunei_Darussalam") %>%
+mutate(Month = month(dateRep), Day = day(dateRep)) %>% select(Day, Month, cases, deaths) %>% group_by(Month) %>% summarise(Total = sum(cases)) %>% kable(caption = "Monthly Brunei Cases") %>% kable_styling(bootstrap_options = c("basic", "hovered")))
+```
+
+In (Table \@ref(tab:brunei_monthly)), the number of cases has been sharply declining from 127 cases to 11 to 3 cases in the months of March, April and May respectively.
 
